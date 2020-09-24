@@ -1,36 +1,37 @@
 function myName() {
   // Create a variable called myName
+  let myName = "Katie";
   return myName;
 }
 
 function setTeachersNames(teachersName) {
   // change code below this line so that we can set the variable.
-  const teachers = null;
+  let teachers = null;
   teachers = teachersName; //  <- this is invalid because teachers is a const. How can we fix this?
-
   return teachers;
 }
 
 /*** return the sum of both arguments  ***/
 function add(a, b) {
-  let sum;
-
+  let sum = a + b;
   return sum;
 }
 
 /*** Using the increment operator, add a year to the argument and make me older */
 function ageMeByAYear(age) {
+  age = ++age;
   return age;
 }
 
 /*** Using the decrement operator make me age decrement by a year  ***/
 function makeMeYoungerByAYear(age) {
+  age = --age;
   return age;
 }
 
 /** Take the argument that will be a string and return an integer  */
 function convertStringToInt(str) {
-  let int;
+  let int = parseInt(str);
   return int;
 }
 
@@ -44,15 +45,14 @@ function convertStringToInt(str) {
  *
  */
 function getTheCharacterPosition(name, letter) {
-  let characterPosition;
+  let characterPosition = name.indexOf(letter);
   return characterPosition;
 }
 
 /** Take the argument and return the length of the argument */
 
 function stringLength(str) {
-  let strLength;
-
+  let strLength = str.length;
   return strLength;
 }
 
@@ -64,8 +64,7 @@ function stringLength(str) {
  */
 
 function getLastCharacter(str) {
-  let lastCharacter;
-
+  let lastCharacter = str[str.length - 1];
   return lastCharacter;
 }
 
@@ -82,8 +81,8 @@ function getLastCharacter(str) {
  */
 
 function getLastWordInPlaceName(place) {
-  let newPlace;
-
+  let space = place.indexOf(" ");
+  let newPlace = place.substring(space + 1);
   return newPlace;
 }
 
@@ -93,9 +92,11 @@ function getLastWordInPlaceName(place) {
  */
 
 function getLargerNumber(arg1, arg2) {
-  let largestNumber;
-
-  return largestNumber;
+  if (arg1 > arg2) {
+    return arg1;
+  } else if (arg2 > arg1) {
+    return arg2;
+  }
 }
 
 /*** A person just got married and they need their last name replaced.
@@ -111,7 +112,11 @@ function getLargerNumber(arg1, arg2) {
  */
 
 function replaceLastName(fullName, newLastName) {
-  let newFullName;
+  let space = fullName.indexOf(" ");
+  let newFullName = fullName.replace(
+    fullName.substring(space + 1),
+    newLastName
+  );
   return newFullName;
 }
 
@@ -121,8 +126,12 @@ function replaceLastName(fullName, newLastName) {
  */
 
 function capitalizeLastName(fullName) {
-  let capitalizeLastName;
-
+  let space = fullName.indexOf(" ");
+  let lastName = fullName.substring(space + 1);
+  let capitalizeLastName =
+    fullName.substring(fullName[0], space + 1) +
+    lastName[0].toUpperCase() +
+    fullName.substring(space + 2);
   return capitalizeLastName;
 }
 
