@@ -4,7 +4,7 @@
  *
  */
 function compareEquality(a, b) {
-  if (a == b) {
+  if (a === b) {
     // Change this line
     return "Equal";
   }
@@ -25,7 +25,7 @@ function compareEquality(a, b) {
 
 function testStrictNotEqual(a, b) {
   // Only Change Code Below this Line
-  if (undefined) {
+  if (a !== b) {
     // Only Change Code Above this Line
 
     return "Not Equal";
@@ -47,12 +47,13 @@ function testStrictNotEqual(a, b) {
 
 function testLogicalAnd(num) {
   // code here
-  if (num <= 6 && num <= 9) {
+  if (num >= 6 && num <= 9) {
     return "Yes";
   } else if (num === 10) {
     return "No";
+  } else {
+    return "No";
   }
-  return "No";
 }
 
 /**
@@ -66,12 +67,23 @@ function testLogicalAnd(num) {
 
 function testLogicalOr(num) {
   // code here
+  if (num === 20 || num === 25) {
+    return "Yes";
+  } else if (0) {
+    return "No";
+  } else {
+    return "No";
+  }
 }
 
 /** Using the modulus operator determine if the argument is an even or odd number */
 
 function isEvenOrOdd(isEven) {
-  return isEven;
+  if (isEven % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /****
@@ -91,7 +103,39 @@ function isEvenOrOdd(isEven) {
  * 
  *  *****/
 
-function caseInSwitch(num) {}
+function caseInSwitch(num) {
+  switch (num) {
+    case 1:
+      return "ONE";
+      break;
+    case 2:
+      return "TWO";
+      break;
+    case 3:
+      return "THREE";
+      break;
+    case 4:
+      return "FOUR";
+      break;
+    case 5:
+      return "FIVE";
+      break;
+    case 6:
+      return "SIX";
+      break;
+    case 7:
+      return "SEVEN";
+      break;
+    case 8:
+      return "EIGHT";
+      break;
+    case 9:
+      return "NINE";
+      break;
+    default:
+      return "PLEASE TRY AGAIN";
+  }
+}
 
 module.exports = {
   isEvenOrOdd,
