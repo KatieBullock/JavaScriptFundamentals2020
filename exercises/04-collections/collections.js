@@ -112,11 +112,14 @@ const highestNumber = (numbers) => {
  */
 
 const findAndAbort = (arr, number) => {
+  let result = undefined;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i]["id"] === number) {
-      return arr[i];
-    } else if (!arr[i]["id"] === number) break;
+      result = arr[i];
+      break;
+    }
   }
+  return result;
 };
 
 /**
