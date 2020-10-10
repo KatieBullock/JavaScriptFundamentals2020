@@ -66,6 +66,15 @@ const groceryList = () => {
  * @returns {Object} an object that has two methods. See comments below.
  */
 const calculator = () => {
+  let sum = 0;
+  return {
+    setter: (num) => {
+      sum = num + sum;
+    },
+    getter: () => {
+      return sum;
+    },
+  };
   /**
    * Create a private variable called "sum"
    * @var {number}
@@ -109,7 +118,27 @@ const calculator = () => {
  * guessRound2(1); // "No more guesses. The answer was 0"
  */
 
-const guessingGame = (numberOfRounds) => {};
+const guessingGame = (numberOfRounds) => {
+  let answer = Math.round(Math.random() * 10);
+  let guesses = 0;
+  return (guess) => {
+    while (guesses < numberOfRounds) {
+      if (guess === answer) {
+      guesses++;
+      return "You got it!";
+      } else if (guess > answer) {
+      guesses++;
+      return "You're too high!";
+      } else if (guess < answer) {
+      guesses++;
+      return "You're too low!";
+      }
+    };
+    if (guesses === numberOfRounds) {
+      return "No more guesses. The answer was " + answer;
+    };
+  };
+};
 
 module.exports = {
   greeter,
