@@ -133,10 +133,10 @@ const guessingGame = (numberOfRounds) => {
       guesses++;
       return "You're too low!";
       }
-    };
+    }
     if (guesses === numberOfRounds) {
       return "No more guesses. The answer was " + answer;
-    };
+    }
   };
 };
 
