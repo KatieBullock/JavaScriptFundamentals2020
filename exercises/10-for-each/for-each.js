@@ -4,7 +4,11 @@
  * @param {array} arr
  * @param {function} callback
  */
-const forEach = (arr, callback) => {};
+const forEach = (arr, callback) => {
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i], i, arr);
+  }
+};
 
 /**
  * Given an array of strings, remove all letters of each value except the first and last character in the strings
@@ -14,7 +18,13 @@ const forEach = (arr, callback) => {};
  *   showFirstAndLast(['colt','matt', 'tim', 'udemy']); // ["ct", "mt", "tm", "uy"]
  *   showFirstAndLast(['hi', 'goodbye', 'smile']) // ['hi', 'ge', 'se']
  */
-const showFirstAndLast = (arr) => {};
+const showFirstAndLast = (arr) => {
+  let newArray = [];
+  arr.forEach((str) => {
+  newArray.push(str[0] + str[str.length -1]);
+  });
+  return newArray;
+};
 
 module.exports = {
   forEach,
