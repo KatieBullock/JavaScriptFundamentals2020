@@ -20,7 +20,7 @@ const map = (arr, callback) => {
  */
 const doubleValues = (arr) => {
   let doubledValuesArr = arr.map((num) => {
-   num * 2;
+   return num * 2;
   });
   return doubledValuesArr;
 };
@@ -44,10 +44,10 @@ const doubleValues = (arr) => {
  * extractKey(arrayOfNames, 'name'); // ['Ellie', 'Tim', 'Matt', 'Colt']
  */
 const extractKey = (arr, key) => {
-  arr.map((obj) => {
-    obj[key];
+  let extractedKeyArr = arr.map((obj) => {
+    return obj[key];
   });
-  return arr;
+  return extractedKeyArr;
 };
 
 module.exports = {
