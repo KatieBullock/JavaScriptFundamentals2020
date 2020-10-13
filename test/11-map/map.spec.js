@@ -19,7 +19,7 @@ describe("exercises/11-map/map.js", () => {
       expect(suppliedArr).to.be.equalTo([1, 2, 3]);
     });
   });
-  describe("doubledValues()", () => {
+  describe("doubleValues()", () => {
     it("should return an array where each number in the array is doubled", () => {
       const doubledValues = doubleValues([2, 3, 4], (number) => {
         return number * 2;
@@ -27,7 +27,7 @@ describe("exercises/11-map/map.js", () => {
       expect(doubledValues).to.be.equalTo([4, 6, 8]);
     });
     it("should use JavaScript's built in .map()", () => {
-      const funcStr = doubledValues.toString();
+      const funcStr = doubleValues.toString();
       expect(funcStr).to.contain(".map");
     });
   });
