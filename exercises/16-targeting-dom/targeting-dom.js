@@ -10,3 +10,24 @@
  * 
  * Do not change the HTML unless you are instructed to do so.
  */
+
+ const firstListItem = document.querySelector("li");
+ console.log(firstListItem);
+
+ const secondListItem = document.querySelector("#myId");
+ console.log(secondListItem);
+
+ const allItems = Object.values(document.querySelectorAll("li"));
+ console.log(allItems);
+
+ const bgWarning = Object.values(document.querySelectorAll(".bg-warning"));
+ console.log(bgWarning);
+
+ const cells = Object.values(document.querySelectorAll("#myRow > div"));
+ console.log(cells);
+
+ const link = document.querySelector("[data-target-link]");
+ console.log(link);
+ 
+ const button = document.querySelector("[data-target-button]");
+ console.log(button);
