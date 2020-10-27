@@ -31,10 +31,10 @@
   <body>
     <section class="bg-dark pt-4 pb-4 text-center">
       <!-- This button should alert the user when clicked on -->
-      <button class="btn btn-success btn-lg">Alert Me!</button>
+      <button class="btn btn-success btn-lg" data-target="alert-me">Alert Me!</button>
 
       <!-- This button should become disabled and display "Loading ..." when clicked on -->
-      <button class="btn btn-warning btn-lg">Charge My Credit Card</button>
+      <button class="btn btn-warning btn-lg" data-target="credit-card">Charge My Credit Card</button>
     </section>
 
     <section class="container pt-4 pb-4">
@@ -64,10 +64,10 @@
         <p>Highway I-87 is now closed.</p>
 
         <!-- This is the button that will toggle the comments -->
-        <p><button class="btn btn-primary">View Comments</button></p>
+        <p><button class="btn btn-primary" data-target="comments">View Comments</button></p>
 
         <!-- This is the comment section you need to toggle -->
-        <div class="card card-body hidden">
+        <div class="card card-body hidden" data-target="comment-section">
           <div class="media">
             <img
               src="https://s3.amazonaws.com/uifaces/faces/twitter/vivekprvr/128.jpg"

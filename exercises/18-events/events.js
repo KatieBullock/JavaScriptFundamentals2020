@@ -69,3 +69,33 @@
  * - Clicking on the "«" and "1" buttons should show everything in data-group="1" and hide everything in data-group="2".
  * - Clicking on the "2" and "»" buttons should show everything in data-group="2" and hide everything in data-group="1".
  */
+
+
+(function() {
+  // Challenge 1: Alert Me
+  let alertButton = document.querySelector(`[data-target="alert-me"]`);
+  alertButton.addEventListener("click", () => {
+    window.alert("Alert Me!");
+  });
+
+  // Challenge 2: Disable a button that will charge a credit card
+  let creditCardButton = document.querySelector(`[data-target="credit-card"]`);
+  creditCardButton.addEventListener("click", () => {
+    creditCardButton.disabled = "disabled";
+    creditCardButton.textContent = "Loading...";
+  });
+
+  // Challenge 3: Show comments for the news story
+  let viewCommentsButton = document.querySelector(`[data-target="comments"]`);
+  let toggleComments = () => {
+    let commentSection = document.querySelector(`[data-target="comment-section"]`);
+    if (commentSection.classList.contains("hidden")) {
+      commentSection.classList.remove("hidden");
+      viewCommentsButton.textContent = "Hide Comments";
+    } else {
+      commentSection.classList.add("hidden");
+      viewCommentsButton.textContent = "View Comments";
+    }
+  };
+  viewCommentsButton.addEventListener("click", toggleComments);
+})();
