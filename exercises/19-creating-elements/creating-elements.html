@@ -25,14 +25,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EXERCISES Creating Elements</title>
-
-    <!--
-      Optional: Add any CSS libraries or your own CSS here. For example:
-      @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link for external files
-      @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style for <style> tags
-    -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.0.3/purify.js"
+      defer
+    ></script>
+    <script src="creating-elements.js" defer></script>
   </head>
   <body>
-    <!-- Put your HTML here -->
+    <div class="container">
+      <input type="text" id="textbox" class="input-lg form-control" />
+      <button type="button" id="button" class="btn btn-primary btn-block">
+        Send
+      </button>
+    </div>
   </body>
 </html>

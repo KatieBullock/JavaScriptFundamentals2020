@@ -98,4 +98,78 @@
     }
   };
   viewCommentsButton.addEventListener("click", toggleComments);
+
+  // Challenge 4: Rendering what a user is typing on the page
+  let mysteryText = document.querySelector(`[data-target="mystery-text"]`);
+  mysteryText.addEventListener("input", (event) => {
+    let mysteryTextDiv = document.querySelector(`[data-target="mystery-text-div"]`);
+    mysteryTextDiv.textContent = event.target.value;
+  });
+
+  // Challenge 5: Display the results of the world's most pointless search engine
+  let form = document.querySelector(".form-group");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let searchDisplay = document.querySelector(`[data-target="search-result"]`);
+    let searchBox = document.querySelector("#searchBox");
+    searchDisplay.textContent = `No results for ${searchBox.value} found`;
+  });
+
+  //Challenge 6: Agree to the terms and conditions
+  let checkbox = document.querySelector("#terms");
+  let continueButton = document.querySelector("#continueButton");
+  continueButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (checkbox.checked) {
+      document.querySelector("#sign-up-success").classList.remove("hidden");
+      document.querySelector("#sign-up-failure").classList.add("hidden");
+      checkbox.classList.remove("is-invalid");
+      continueButton.disabled = "disabled";
+    } else {
+      document.querySelector("#sign-up-failure").classList.remove("hidden");
+      document.querySelector("#sign-up-success").classList.add("hidden");
+      checkbox.classList.add("is-invalid");
+    }
+  });
+
+  // Challenge 7: Add pagination to the student table
+  let pageOne = Object.values(document.querySelectorAll(`[data-group="1"]`));
+  let pageTwo = Object.values(document.querySelectorAll(`[data-group="2"]`));
+  
+  pageTwo.forEach((cell) => {
+    cell.classList.add("hidden");
+  });
+
+  document.querySelector("#back-button").addEventListener("click", () => {
+    pageTwo.forEach((cell) => {
+      cell.classList.add("hidden");
+    });
+    pageOne.forEach((cell) => {
+      cell.classList.remove("hidden");
+    });
+  });
+  document.querySelector("#one-button").addEventListener("click", () => {
+    pageTwo.forEach((cell) => {
+      cell.classList.add("hidden");
+    });
+    pageOne.forEach((cell) => {
+      cell.classList.remove("hidden");
+    });
+  });
+  document.querySelector("#two-button").addEventListener("click", () => {
+    pageOne.forEach((cell) => {
+      cell.classList.add("hidden");
+    });
+    pageTwo.forEach((cell) => {
+      cell.classList.remove("hidden");
+    });
+  });
+  document.querySelector("#forward-button").addEventListener("click", () => {
+    pageOne.forEach((cell) => {
+      cell.classList.add("hidden");
+    });
+    pageTwo.forEach((cell) => {
+      cell.classList.remove("hidden");
+    });
+  });
 })();
