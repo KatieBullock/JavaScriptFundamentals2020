@@ -7,3 +7,18 @@
  * This is the API you will be using. The method will be GET.
  * https://ron-swanson-quotes.herokuapp.com/v2/quotes
  */
+
+(function () {
+  const quoteButton = document.querySelector("#quoteButton");
+  const blockQuote = document.querySelector("#quote");
+
+  async function printQuote() {
+    let data = await axios.get(
+      "https://ron-swanson-quotes.herokuapp.com/v2/quotes"
+    );
+    let randomQuote = data.data;
+    blockQuote.textContent = randomQuote;
+  }
+
+  quoteButton.addEventListener("click", printQuote);
+})();

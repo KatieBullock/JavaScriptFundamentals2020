@@ -15,3 +15,36 @@
  *
  * Use the AXIOS library to make AJAX requests.
  */
+(function () {
+  const dropdown = document.querySelector("#dropdown");
+  const picture = document.querySelector("#get-schwifty");
+  const title = document.querySelector("#title-head");
+  picture.src = "https://i.ytimg.com/vi/UFFi9PWKDjg/maxresdefault.jpg";
+
+  axios({
+    url: "https://rickandmortyapi.com/api/character/?page=1",
+    method: "GET",
+  })
+    .then((response) => {
+      let characters = response.data.results;
+      characters.forEach((character) => {
+        const { name } = character;
+        let option = document.createElement("option");
+        option.textContent = name;
+        option.value = name;
+        dropdown.appendChild(option);
+      });
+      dropdown.addEventListener("change", () => {
+        let characterOption = document.querySelector("#dropdown").value;
+        characters.find((character) => {
+          if (character["name"] === characterOption) {
+            picture.src = character.image;
+            title.textContent = characterOption;
+          }
+        });
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+})();

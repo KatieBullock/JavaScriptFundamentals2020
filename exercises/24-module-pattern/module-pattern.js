@@ -22,7 +22,38 @@
 const { studentGrades } = require("./students");
 
 const TeacherGradeBook = (() => {
-  return {};
+  let totalGrade;
+  let meanGrade;
+  let failingStudents = [];
+  let passingStudents = [];
+
+  return {
+    debug: () => {
+      console.log(studentGrades);
+    },
+
+    getFailingStudents: () => {
+      studentGrades.forEach((student) => {
+        totalGrade = student.grades.reduce((a, b) => a + b, 0);
+        meanGrade = totalGrade / student.grades.length;
+        if (meanGrade < 65) {
+          failingStudents.push(student);
+        }
+      });
+      return failingStudents;
+    },
+
+    getPassingStudents: () => {
+      studentGrades.forEach((student) => {
+        totalGrade = student.grades.reduce((a, b) => a + b, 0);
+        meanGrade = totalGrade / student.grades.length;
+        if (meanGrade > 65) {
+          passingStudents.push(student);
+        }
+      });
+      return passingStudents;
+    },
+  };
 })();
 
 module.exports = {
