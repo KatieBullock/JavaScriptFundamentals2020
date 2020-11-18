@@ -54,28 +54,38 @@
    * @see https://codesandbox.io/s/observer-pattern-no-bundler-n2ukw?file=/src/index.js
    */
 
-  document
-    .querySelector("#currency2")
-    // I'm putting async here so that await will work
-    .addEventListener("change", async () => {
-      const currency1 = document.querySelector("#currency1").value;
-      const currency2 = document.querySelector("#currency2").value;
+  const currencyDropdown1 = document.querySelector("#currency1");
+  const currencyDropdown2 = document.querySelector("#currency2");
+  const amountTextbox = document.querySelector("#amount");
 
-      // Here I am checking to see if both dropdowns are complete.
-      // Only when both are complete, will I make the AJAX request.
-      if (currency1 && currency2) {
-        const response = await fakeAxios({
-          url: "http://pretendsite.com/currency",
-          method: "POST",
-          data: JSON.stringify({
-            currency1: currency1,
-            currency2: currency2,
-            amount: 1,
-          }),
-        });
+  const currencyObserver = Observable();
 
-        // Displays the converted amount
-        document.querySelector("#amount").value = response.amount;
-      }
-    });
+  const updateAmount = async () => {
+    const currency1 = currencyDropdown1.value;
+    const currency2 = currencyDropdown2.value;
+    if (currency1 && currency2) {
+      const response = await fakeAxios({
+        url: "http://pretendsite.com/currency",
+        method: "POST",
+        data: JSON.stringify({
+          currency1: currency1,
+          currency2: currency2,
+          amount: 1,
+        }),
+      });
+      amountTextbox.value = response.amount;
+    }
+  };
+
+  currencyObserver.subscribe(updateAmount);
+
+  currencyDropdown1.addEventListener("change", (e) => {
+    const newCurrency = e.target.value;
+    currencyObserver.notify(newCurrency);
+  });
+
+  currencyDropdown2.addEventListener("change", (e) => {
+    const newCurrency = e.target.value;
+    currencyObserver.notify(newCurrency);
+  });
 })();

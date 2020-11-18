@@ -28,6 +28,33 @@
  * console.log( gradebook.getFailingStudents() );
  * // [ {firstName:'Billy',lastName:'Joel',grades:[20,30,40,50]}, {firstName:'Luke',lastName:'Skywalker', grades:[0,0,0,100]} ]
  */
+class TeacherGradeBook {
+  constructor(students) {
+    this.students = students;
+  }
+  getPassingStudents() {
+    let passingStudents = [];
+    this.students.forEach((student) => {
+      let totalGrade = student.grades.reduce((a, b) => a + b, 0);
+      let meanGrade = totalGrade / student.grades.length;
+      if (meanGrade > 65) {
+        passingStudents.push(student);
+      }
+    });
+    return passingStudents;
+  }
+  getFailingStudents() {
+    let failingStudents = [];
+    this.students.forEach((student) => {
+      let totalGrade = student.grades.reduce((a, b) => a + b, 0);
+      let meanGrade = totalGrade / student.grades.length;
+      if (meanGrade < 65) {
+        failingStudents.push(student);
+      }
+    });
+    return failingStudents;
+  }
+}
 
 /**
  * Ignore everything below this line. This is for the tests.
